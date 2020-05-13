@@ -1,6 +1,10 @@
 """
-2 level solution
+2 level solution:
+1. brute force: delete every element in list and check if the rest is palindrome.
+2. Two pointers (greedy): use two points traversing from head and tail. If different, delete it and check if the rest sub-list is palindrome. Note there are two cases of deleting.
 
+1. Time:O(N**2) Space:O(N)
+2. Time:O(N) Space:O(1)
 """
 
 # my answer:
@@ -36,14 +40,14 @@ class Solution(object):
 
 
 
-# LeetCode solution:
+# LeetCode solution: (有点反应不过来）
 class Solution(object):
     def validPalindrome(self, s):
         def is_pali_range(i, j):
-            return all(s[k] == s[j-k+i] for k in range(i, j))
+            return all(s[k] == s[j-k+i] for k in range(i, j))       # 我又看傻了，这是个遍历，此ij非彼ij.
 
         for i in xrange(len(s) / 2):
-            if s[i] != s[~i]:
+            if s[i] != s[~i]:         # 我看傻了 ~按位取反
                 j = len(s) - 1 - i
                 return is_pali_range(i+1, j) or is_pali_range(i, j-1)
         return True
