@@ -82,3 +82,8 @@ a[:i] 不包括 a[i]
 
 
 # Python 中 （&，|）和（and，or）之间的区别: https://blog.csdn.net/weixin_40041218/article/details/80868521
+
+"""
+~ 位运算符： ~5 = -6
+https://blog.csdn.net/lanchunhui/article/details/51746477
+"""
