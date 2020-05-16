@@ -43,5 +43,6 @@ class Solution(object):
 
 """
 这个题啊 亲测最后return 有没有都行，Java 和 C++ 比较容易判断需不需要return (看函数是void还是int...)
-但python我不知道怎么判断
+但python我不知道怎么判断. 
+update: (人家code里的注释 rtype 写的清清楚楚的）
 """
