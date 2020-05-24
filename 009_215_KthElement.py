@@ -1,6 +1,14 @@
 """
+3 level solutions:
+1. sorted function
+2. Heap
+3. Quickselect: improved Quicksort algorithm.
 
+1. time: O(NlogN) space:O(1)
+2. time: O(NlonK) space:O(k)
+3. time: O(N) (worse: O(N**2)) space:O(1)
 """
+"""由于此题过于经典，这里写下三个level的所有题解"""
 
 class Solution(object):
     def findKthLargest(self, nums, k):
