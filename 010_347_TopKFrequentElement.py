@@ -1,7 +1,10 @@
 """
 2 level solutions:
 1. Heap: hashmap -> a heap of size k -> output array
-2.
+2. Quickselect.
+
+1. time: O(Nlogk) space: O(N+k)
+2. time: O(N) (worst O(N**2))  space: O(N)
 """
 """keep both 2 level solution answer, all are good and useful"""
 
