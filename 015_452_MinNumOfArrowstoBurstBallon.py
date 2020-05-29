@@ -4,7 +4,23 @@ Greedy Algorithm
 
 time O(nlogn) space O(1)
 """
-ads
+
+
+class Solution(object):
+    def findMinArrowShots(self, points):
+        """
+        :type points: List[List[int]]
+        :rtype: int
+        """
+        points.sort(key=lambda x: x[1])
+        arrow = 0
+        prev = None
+
+        for curr in points:
+            if not prev or prev[1] < curr[0]:
+                arrow += 1
+                prev = curr
+        return arrow
 
 
 
