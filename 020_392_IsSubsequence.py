@@ -15,6 +15,120 @@
 4. O(S*T) O(S*T)
 """
 
+# 2. Two pointers （myself):
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        s_ptr = 0
+        t_ptr = 0
+
+        if len(s) == 0:   # 这两个特殊情况真的是恶心人
+            return True
+        if len(t) == 0:
+            return False
+
+        while True:
+            if s[s_ptr] == t[t_ptr]:
+                s_ptr += 1
+            t_ptr += 1
+
+            if s_ptr == len(s):
+                return True
+            elif t_ptr == len(t):
+                return False
+
+# 2. Two pointers (LeetCode solution) 这样写代码特殊情况就不用单独考虑了
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        LEFT_BOUND, RIGHT_BOUND = len(s), len(t)
+
+        p_left = p_right = 0
+        while p_left < LEFT_BOUND and p_right < RIGHT_BOUND:
+            # move both pointers or just the right pointer
+            if s[p_left] == t[p_right]:
+                p_left += 1
+            p_right += 1
+
+        return p_left == LEFT_BOUND
+
+
+# 3. Greedy Match with Character Indices Hashmap
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        letter_indices_table = defaultdict(list)
+        for index, letter in enumerate(t):
+            letter_indices_table[letter].append(index)
+
+        curr_index = -1
+        for letter in s:
+            if letter not in letter_indices_table:
+                return False
+            else:
+                indices_list = letter_indices_table[letter]
+                match_index = bisect.bisect_right(indices_list, curr_index)  # 1. 必须用bisect_right而不是left
+                if match_index != len(indices_list):  # 2. !=
+                    curr_index = indices_list[match_index]
+                else:
+                    return False
+        return True
+
+
+# 明确，这题，需要循环s string，每个loop里用二分法去查找想要的match_index
+# 所以curr_index是for循环的(s string)的index, match_index是每个循环内部indices_list的index,不一样
+
+# 1. 必须用"bisect_right"
+# 如果s string有连续重复的字母，bisect_right可以推进，bisect_left就在这个字母的indices_list原地踏步了。
+# 而且biset_right还有往前进一位的功能，促成了2.
+
+# 2. 这里用!=解决了一切需要终止的情况。
+# 有两种需要终止的情况，一类是curr_index=len(indices_list) 另一类curr_index>len(indices_list)
+# 而这两种情况都会变为match_index == len(indices_list)
+# 而且解释下为什么这两种情况都需要终止，>就不用说了，肯定超了，=其实也超了，=的时候必然是连续重复字母的情况，超了是因为这里bisect_right自带+1功能
+
+# 明早起来清算一下。上面说的bisect_right自带+1功能有点抽象了哈，这里的代码的逻辑其实是用上一个curr_index去找下一个curr_index的match_index，
+# 所以当遇到相同的match_index，当然不行，那不是自己找自己吗，所以bisect_right刚好遇到相同往后移动一位。
+
+# 分析到这里我们发现，其实用bisect_left也是可以的，办法就是把代码的逻辑改为用上一个curr_index+1 去找下一个curr_index的match_index，其实这样
+# 才更自然顺畅吧！因为我们就是要用 当前的curr_index去找其match_index。
+
+# bisect_left version: (written by myself, submit succeeded)
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        letter_indices_table = defaultdict(list)
+        for index, letter in enumerate(t):
+            letter_indices_table[letter].append(index)
+
+        curr_index = -1
+        for letter in s:
+            if letter not in letter_indices_table:
+                return False
+            else:
+                indices_list = letter_indices_table[letter]
+                match_index = bisect.bisect_left(indices_list, curr_index)
+                if match_index != len(indices_list):
+                    curr_index = indices_list[match_index] + 1
+                else:
+                    return False
+        return True
 
 
 """
