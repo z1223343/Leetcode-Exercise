@@ -2,5 +2,5 @@
 1 solution
 1. Greedy
 
-time: 
+time: O(N)  space: O(N)
 """
