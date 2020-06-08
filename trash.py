@@ -1,10 +1,3 @@
-import bisect
+a = [0,1,2,3,4,5]
 
-L = [1,2,3,6,8,12,15]
-x = 3
-
-aaa = bisect.bisect_left(L,x)
-bbb = bisect.bisect_right(L,x)
-print(aaa)
-print(bbb)
-print(L)
+print(a[2:4])
