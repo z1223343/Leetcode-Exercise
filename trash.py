@@ -1,7 +1,4 @@
-a = [0,1,2,3,4,5]
+square_nums = set([i * i for i in range(1, int(10**0.5)+1)])
 
-print(a[2:4])
-
-#尼玛写了一天代码12点前忘了push
-
-#日
+for k in square_nums:
+    print(k)
