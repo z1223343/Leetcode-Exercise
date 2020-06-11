@@ -1,6 +1,6 @@
 """
 1 level solution：
-1. BFS (广度优先搜索)
+1. BFS (广度优先搜索 Breath first search)
 
 time: O(N**2)  space: O(N**2)
 """
