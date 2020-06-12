@@ -1,4 +1,8 @@
-square_nums = set([i * i for i in range(1, int(10**0.5)+1)])
-
-for k in square_nums:
-    print(k)
+a = [None]
+b = None
+c= [1,2,3]
+d= [1,2,3]
+c.append(a)
+d.append(b)
+print(c)
+print(d)
