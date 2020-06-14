@@ -80,6 +80,45 @@ class Solution(object):
                         visited[word] = True
                 all_comb_dict[intermediate_word] = []
         return 0
-"""
 
+# 改良版 v2: 发现其实还是重复元素的问题..不是说字典找元素快，是要避免重复元素，这里换为set()也达到了一样的time
+class Solution(object):
+    def ladderLength(self, beginWord, endWord, wordList):
+        """
+        :type beginWord: str
+        :type endWord: str
+        :type wordList: List[str]
+        :rtype: int
+        """
+        if (endWord not in wordList):
+            return 0
+
+        L = len(beginWord)
+
+        # define all_words_intermedium_dict
+        all_comb_dict = defaultdict(list)
+        for word in wordList:
+            for i in range(L):
+                all_comb_dict[word[:i] + '*' + word[i + 1:]].append(word)
+
+        # define the queue
+        queue = [(beginWord, 1)]
+        visited = set()
+        visited.add(beginWord)
+
+        while queue:
+            curr_word, level = queue.pop(0)
+            for i in range(L):
+                intermediate_word = curr_word[:i] + '*' + curr_word[i + 1:]
+                for word in all_comb_dict[intermediate_word]:
+                    if word == endWord:
+                        return level + 1
+                    elif word not in visited:
+                        queue.append((word, level + 1))
+                        visited.add(word)
+                all_comb_dict[intermediate_word] = []
+        return 0
+"""
+time complexity 有点没看懂，为啥“forming each of the intermediate word takes O(M)O(M) time because of the substring 
+operation used to create the new string.“
 """
