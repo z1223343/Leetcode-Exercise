@@ -3,6 +3,7 @@
 
 """
 
+# DFS solution 1
 # 自己写的, 模仿上一题DFS
 class Solution(object):
     def numIslands(self, grid):
@@ -27,6 +28,33 @@ class Solution(object):
                     cnt += 1
         return cnt
 # 这个题和上个不一样哈，这个input都是“1” “0” 字符串格式的。
+
+# improved solution 1 (根据LeetCode solution的思路，真的time和space都快到了100%，很棒）
+class Solution(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+
+        def dfs(r, c):
+            grid[r][c] = 0
+            if (r + 1 < len(grid)) and grid[r + 1][c] == '1':
+                dfs(r + 1, c)
+            if (r - 1 >= 0) and grid[r - 1][c] == '1':
+                dfs(r - 1, c)
+            if (c + 1 < len(grid[0])) and grid[r][c + 1] == '1':
+                dfs(r, c + 1)
+            if (c - 1 >= 0) and grid[r][c - 1] == '1':
+                dfs(r, c - 1)
+
+        cnt = 0
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                if grid[r][c] == '1':
+                    cnt += 1
+                    dfs(r, c)
+        return cnt
 """
 
 """
