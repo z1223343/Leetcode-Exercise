@@ -61,5 +61,5 @@ class Solution(object):
         return ans
 
 """
-
+solution 2 难道不是 BFS??? 按照我的理解solution 2是BFS.
 """
