@@ -1,6 +1,15 @@
 """
+3 level solution:
+1. DFS
+2. BFS (其实就是用stack)
+3. Union Find (aka Disjoint Set) 一个崭新的算法，见后面我的分析
 
-sdf
+    time    space
+1. O(M*N)  O(M*N)
+2. O(M*N)  O(min(M,N))
+3. O(M*N)  O(M*N)
+(Note that Union operation takes essentially constant time when UnionFind is implemented with both path compression
+and union by rank.)
 """
 
 # DFS solution 1
@@ -55,6 +64,94 @@ class Solution(object):
                     cnt += 1
                     dfs(r, c)
         return cnt
-"""
 
+
+# solution 3.
+"""
+Union Find (并查集) 是一个新算法，这里了解一下
+资料参考：https://blog.csdn.net/johnny901114/article/details/80721436
+"""
+# Java 代码实现实例（leetCode答案，但我删了两行没用的）
+# class Solution {
+#   class UnionFind {
+#     int count; // # of connected components
+#     int[] parent;
+#     int[] rank;
+#
+#     public UnionFind(char[][] grid) { // for problem 200
+#       count = 0;
+#       int m = grid.length;
+#       int n = grid[0].length;
+#       parent = new int[m * n];
+#       rank = new int[m * n];
+#       for (int i = 0; i < m; ++i) {
+#         for (int j = 0; j < n; ++j) {
+#           if (grid[i][j] == '1') {
+#             parent[i * n + j] = i * n + j;
+#             ++count;
+#           }
+#           rank[i * n + j] = 0;
+#         }
+#       }
+#     }
+#
+#     public int find(int i) { // path compression 博大精深，既查找了也压缩了，而且用了递归的形式，你品品，等于用了一个while.
+#       if (parent[i] != i) parent[i] = find(parent[i]);
+#       return parent[i];
+#     }
+#
+#     public void union(int x, int y) { // union with rank
+#       int rootx = find(x);
+#       int rooty = find(y);
+#       if (rootx != rooty) {
+#         if (rank[rootx] > rank[rooty]) {
+#           parent[rooty] = rootx;
+#         } else if (rank[rootx] < rank[rooty]) {
+#           parent[rootx] = rooty;
+#         } else {
+#           parent[rooty] = rootx; rank[rootx] += 1;
+#         }
+#         --count;
+#       }
+#     }
+#
+#     public int getCount() {
+#       return count;
+#     }
+#   }
+#
+#   public int numIslands(char[][] grid) {
+#     if (grid == null || grid.length == 0) {
+#       return 0;
+#     }
+#
+#     int nr = grid.length;
+#     int nc = grid[0].length;
+#     UnionFind uf = new UnionFind(grid);
+#     for (int r = 0; r < nr; ++r) {
+#       for (int c = 0; c < nc; ++c) {
+#         if (grid[r][c] == '1') {
+#           if (r - 1 >= 0 && grid[r-1][c] == '1') {
+#             uf.union(r * nc + c, (r-1) * nc + c);
+#           }
+#           if (r + 1 < nr && grid[r+1][c] == '1') {
+#             uf.union(r * nc + c, (r+1) * nc + c);
+#           }
+#           if (c - 1 >= 0 && grid[r][c-1] == '1') {
+#             uf.union(r * nc + c, r * nc + c - 1);
+#           }
+#           if (c + 1 < nc && grid[r][c+1] == '1') {
+#             uf.union(r * nc + c, r * nc + c + 1);
+#           }
+#         }
+#       }
+#     }
+#
+#     return uf.getCount();
+#   }
+# }
+
+"""
+但我觉得他还是整麻烦了，这个答案和大部分代码都无关啊，只要一开始统计等于1的count，主function四个方向expand if等于1 count--，就完事了
+我们根本不care ’parent‘内部具体的值
 """
