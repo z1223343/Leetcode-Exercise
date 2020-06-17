@@ -1,5 +1,8 @@
 """
-
+3 level solution:
+1. DFS
+2. BFS (用stack(queue))
+3. Union Find
 
 """
 
@@ -47,6 +50,10 @@ class Solution(object):
                 dfs(r)
         return count
 
+# solution 2:
+# 用queue，略
+
+# 
 """
 
 
