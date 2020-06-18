@@ -1,7 +1,7 @@
 """
 3 level solution:
 1. DFS
-2. BFS (其实就是用stack)
+2. BFS (其实就是用queue,和用stack很像)
 3. Union Find (aka Disjoint Set) 一个崭新的算法，见后面我的分析
 
     time    space
@@ -152,6 +152,8 @@ Union Find (并查集) 是一个新算法，这里了解一下
 # }
 
 """
+以上是一个很标准的Union Find算法。
+
 但我觉得他还是整麻烦了，这个答案和大部分代码都无关啊，只要一开始统计等于1的count，主function四个方向expand if等于1 count--，就完事了
 我们根本不care ’parent‘内部具体的值
 """
