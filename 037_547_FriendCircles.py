@@ -1,9 +1,13 @@
 """
 3 level solution:
 1. DFS
-2. BFS (用stack(queue))
+2. BFS (用queue，和用stack很像)
 3. Union Find
 
+    time     space
+1.  O(n**2)  O(n)
+2.  O(n**2)  O(n)
+3.  O(n**3)  O(n)  (谁叫你没用path compression)
 """
 
 # DFS solution 1:
@@ -53,7 +57,11 @@ class Solution(object):
 # solution 2:
 # 用queue，略
 
-# 
+# solution 3:
+# 我看了，这个Union Find有点变种的意思啊，不是传统的。
+# parents 默认设置成-1，find函数也是返回-1的下一层。
+# 这个思路和DFS一比，也太绕了吧。 挺有意思。
+# code略。
 """
 
 
