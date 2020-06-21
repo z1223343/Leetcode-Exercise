@@ -1,5 +1,7 @@
 """
-
+1 solution:
+1. Backtracking
+time  O(N*4**L)   time  O(L)
 """
 
 # 根据leetcode solution 我的原版: (runtime 在50%以下）
