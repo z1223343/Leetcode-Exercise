@@ -1,7 +1,6 @@
 """
-1 solution
-
-DFS sfdsd
+1 solution：
+1. DFS
 """
 
 
