@@ -1,2 +1,5 @@
-s = 'abcde'
-print(s[3:3])
+from collections import defaultdict
+
+a = {[1,2]:1}
+
+print(a)
