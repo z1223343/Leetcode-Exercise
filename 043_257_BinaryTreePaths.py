@@ -1,6 +1,11 @@
 """
+3 level solution:
+1. Backtracking (my work)
+2. Recursion
+3. Iterations (stack)
 
-
+          time    space
+all same: O(N)    O(N)
 """
 # solution 1: 我这是严格按照 backtracking 的思路来写的，体现了backtrack.
 # Definition for a binary tree node.
@@ -91,6 +96,7 @@ class Solution:
     这个知识点之前一个题目 我也有所发现好像。
 2. 所以这里我做了一个实验，用现在这个recursive solution的code，把path改为list而不是string，果然这个算法就不好用了：
 """
+# solution 2 modified (wrong)
 class Solution:
     def binaryTreePaths(self, root):
         """
