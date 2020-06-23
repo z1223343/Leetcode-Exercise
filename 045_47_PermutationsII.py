@@ -2,7 +2,7 @@
 1 solution
 1. backtracking
 """
-# solution 1: (github repo java solution rewrite in python)
+# solution 1: (github repo java solution rewrite in python) time score: 30%
 class Solution(object):
     def permuteUnique(self, nums):
         """
@@ -39,7 +39,7 @@ class Solution(object):
         def dfs(curr, nums):
             if (len(nums) == 0):  # conditions changed, watch out
                 result.append(curr[:])
-
+                return
             for i in range(len(nums)):
                 if i > 0 and nums[i] == nums[i - 1]:  # we dont create duplicate initial branches.
                     continue
