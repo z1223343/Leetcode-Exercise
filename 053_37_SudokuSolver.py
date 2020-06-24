@@ -54,7 +54,7 @@ class Solution(object):
 
         n = 3
         N = n * n
-        box_index = lambda row, col: (row // n) * n + col // n
+        box_index = lambda row, col: (row // n) * n + col // n    # 骚
 
         rows = [defaultdict(int) for i in range(N)]
         columns = [defaultdict(int) for i in range(N)]
