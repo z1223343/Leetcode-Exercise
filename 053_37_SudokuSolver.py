@@ -4,7 +4,9 @@ First Hard Question
 1. brute force
 2. backtracking
 
-
+    time  space
+1.  O(9**81)  O(1)
+2.  O(9!**9)  O(1)
 """
 
 
