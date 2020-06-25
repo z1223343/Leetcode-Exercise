@@ -10,7 +10,7 @@ class Solution:
         if len(nums) == 1:
             return nums[0]
         n = len(nums)
-        return max(self.dp(nums, 0, n - 2), self.dp(nums, 1, n - 1))
+        return max(self.dp(nums, 0, n - 2), self.dp(nums, 1, n - 1))  # 思想牛的
 
     def dp(self, nums, start, end):
         pre1 = 0
