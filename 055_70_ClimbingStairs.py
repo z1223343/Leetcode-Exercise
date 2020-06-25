@@ -24,7 +24,7 @@ class Solution:
         dp_pre1 = 2
         dp_pre2 = 1
         for i in range(3,n+1):
-            curr = dp_pre1+dp_pre2
+            curr = dp_pre1+dp_pre2  # 思想牛的
             dp_pre2 = dp_pre1
             dp_pre1 = curr
         return curr
