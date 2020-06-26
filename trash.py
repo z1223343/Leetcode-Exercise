@@ -1,5 +1,2 @@
-from collections import defaultdict
-
-a = {[1,2]:1}
-
-print(a)
+for i in range(5,1,-1):
+    print(i)
