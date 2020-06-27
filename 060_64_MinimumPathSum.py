@@ -1,6 +1,16 @@
 """
-3 level solution
+3 level solution：
 
+1. Brute Force
+2. Dynamic Programming 2D
+3. Dynamic Programming 1D
+4. Dynamic Programming (without extra space)
+
+    time          space
+1.  O(2**(m+n))   O(m+n)
+2.  O(mn)         O(mn)
+3.  O(mn)         O(n)
+4.  O(mn)         O(1)
 """
 
 # standard DP, but time score is 5%.
@@ -9,6 +19,7 @@ class Solution:
         if len(grid) == 0 or len(grid[0]) == 0:
             return 0
         dp = [[[] for i in range(len(grid[0]))] for i in range(len(grid))]
+        # 虽然这样结果不错，但应改为 dp = [[0]*len(grid[0]) for i in range(len(grid))]
 
         for i in range(len(grid) - 1, -1, -1):
             for j in range(len(grid[0]) - 1, -1, -1):
