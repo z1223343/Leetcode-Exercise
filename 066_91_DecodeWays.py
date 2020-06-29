@@ -1,5 +1,7 @@
 """
+3 level solution:
 
+2.
 
 """
 
