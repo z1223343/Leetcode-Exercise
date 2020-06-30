@@ -1,8 +1,13 @@
 """
 3 level solution:
+1. Recursive Approach with Memoization
+2. DP
+3. DP with constant space
 
-2.
-
+    time    space
+1.  O(N)    O(N)
+2.  O(N)    O(N)
+3.  O(N)    O(1)
 """
 
 # solution 2 (DP思想是真丫的牛逼)
@@ -76,3 +81,24 @@ class Solution(object):
 3.代一代最初的几个值，看一开始的dp[0] dp[1] dp[2]等应该做怎样的调整，能正确的循环起来吗。
 4.能不能优化space complexity，也就是我们为了求dp[i],是不是只需要某几个特定的值 比如dp[i-1] dp[i-2]。
 """
+
+# solution 3:
+class Solution(object):
+    def numDecodings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dp_pre2 = 1
+        dp_pre1 = 1 if s[0] != '0' else 0
+        curr = 0
+        for i in range(2, len(s) + 1):
+            curr = 0
+            if s[i - 1] != '0':
+                curr += dp_pre1
+            two_digit = int(s[i - 2:i])
+            if two_digit < 27 and two_digit >= 10:
+                curr += dp_pre2
+            dp_pre2 = dp_pre1
+            dp_pre1 = curr
+        return dp_pre1
