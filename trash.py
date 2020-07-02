@@ -11,3 +11,5 @@ dp4 = [[0]*3 for i in range(2)]
 print(dp4)
 
 print([1]+[2])
+
+aoligei
