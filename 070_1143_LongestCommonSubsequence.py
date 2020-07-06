@@ -6,7 +6,7 @@
    time       space
 1. O(M*N**2)  O(M*N)
 2.
-
+3.
 """
 
 # solution 1: (copy leetcode solution)
