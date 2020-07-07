@@ -48,24 +48,8 @@ class Solution(object):
         return 1+max(down,up)
 
 
-# solution 3:
-class Solution(object):
-    def wiggleMaxLength(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        if len(nums) < 2:
-            return len(nums)
-        up = [0]*len(nums)
-        down = [0]*len(nums)
-        for i in range(1,len(nums)):
-            for j in range(0,i):
-                if nums[i]>nums[j]:
-                    up[i] = max(up[i],down[j]+1)
-                elif nums[i]<nums[j]:
-                    down[i] = max(down[i],up[j]+1)
-# solution 4: 感觉greedy思路是更直接 靠近直觉的，但是code写起来并不直接
+
+# solution 3: 感觉greedy思路是更直接 靠近直觉的，但是code写起来并不直接
 # 是牛逼的，我想了半天，为什么看似相似的算法，答案就没有像我的算法一样被边界情况所困扰，为什么它能接受0的存在，算法思想是博大精深的
 # 答案的思路好像也是找拐点，但是 if (diff>0 and prevdiff<=0) or (diff<0 and prevdiff>=0) 保证了进入循环后prevdiff再也不可能为0
 # 这个prediff=0就是为了initial时prediff可能等于0准备的，然后 count = 2 if prevdiff!=0 else 1 这一步补偿。这一步也神奇的解决了一个“拐点”也没有时，有1有0的情况。
@@ -88,7 +72,7 @@ class Solution(object):
         return count
 
 
-# solution 5: 自创版本 （卧槽，算法还挺快的
+# solution 3: 自创版本 （卧槽，算法还挺快的
 class Solution(object):
     def wiggleMaxLength(self, nums):
         """
