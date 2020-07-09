@@ -1,6 +1,6 @@
 """
 2 solution
-1. DP
+1. DP (knapsack problem)
 2. DFS
 """
 
@@ -23,3 +23,6 @@ class Solution:
             for j in range(W,i-1,-1):
                 dp[j] = dp[j] + dp[j-i]
         return dp[W]
+
+# solution 2:
+# 先欠着
