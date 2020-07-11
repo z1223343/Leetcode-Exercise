@@ -2,7 +2,7 @@
 1 level solution:
 1. DP (knapsack problem)
 
-time:  O()    space:  O()
+time:  O(l*m*n)    space:  O(m*n)
 """
 
 # solution 1:
@@ -26,3 +26,5 @@ class Solution:
                 for j in range(n, count1 - 1, -1):
                     dp[j][i] = max(dp[j][i], 1 + dp[j - count1][i - count0])
         return dp[n][m]
+
+# 此题建议再多练练
