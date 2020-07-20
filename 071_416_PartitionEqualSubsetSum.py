@@ -17,3 +17,5 @@ class Solution:
                 dp[j] = dp[j] or dp[j-i]
         return dp[W]
 # 有更快的解法，好像是DFS，先欠着
+
+# 01背包问题 乃至整个动态规划 回来要重点回看一遍。 而且也要用DFS尝试重做一遍。
