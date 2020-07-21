@@ -5,6 +5,7 @@
 
 # solution 1
 # “涉及顺序的完全背包问题"
+# 介就直接想成一个一维的DP呗
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
         if len(nums)==0:
