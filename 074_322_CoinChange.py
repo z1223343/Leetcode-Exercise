@@ -7,6 +7,7 @@
 """
 
 # solution 1 (from Github guidline)
+# 完全背包问题
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         if amount == 0:
