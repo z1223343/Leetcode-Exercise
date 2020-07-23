@@ -12,3 +12,5 @@ class Solution:
             held = max(held,reset-price)
             reset = max(reset,pre_sold)
         return max(sold,reset)
+
+# solution 2
