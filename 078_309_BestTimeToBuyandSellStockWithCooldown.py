@@ -19,4 +19,13 @@ class Solution:
             reset = max(reset,pre_sold)
         return max(sold,reset)
 
-# solution 2
+# solution 1 改 （用下一题的思路写的）其实两种思路是一样的。
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+
+        held = float('-inf')
+        rest = 0
+        cash = float('-inf')
+        for price in prices:
+            cash, held, rest = held+price, max(held,rest-price), max(cash,rest)
+        return max(cash,rest)
