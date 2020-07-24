@@ -5,7 +5,7 @@
     time    space
 1.  O(N)    O(1)
 """
-# 1 solution:
+# solution 1:
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
         cash, hold = 0, float('-inf')
@@ -24,3 +24,4 @@ class Solution:
 
 更好玩的是这个代码里对待股票的思路和我的直觉也有不同，不过after all这里的股票和真实的股票买卖也有很大区别
 """
+
