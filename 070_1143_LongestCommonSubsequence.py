@@ -100,8 +100,8 @@ class Solution:
             text1, text2 = text2, text1
         rows = len(text1)
         cols = len(text2)
-        dp_prev = [0] * (cols + 1)
-        dp_curr = [0] * (cols + 1)
+        dp_prev = [0] * (rows + 1)
+        dp_curr = [0] * (rows + 1)
 
         for i in reversed(range(cols)):
             for j in reversed(range(rows)):
@@ -110,7 +110,7 @@ class Solution:
                 else:
                     dp_curr[j] = max(dp_curr[j + 1], dp_prev[j])
             dp_prev = dp_curr
-            dp_curr = [0] * (cols + 1)
+            dp_curr = [0] * (rows + 1)
         return dp_prev[0]
 
 # solution 4 (a little bit improved by reusing the reference of dp_prev, at the end of loop)(according to LeetCode solution)
@@ -144,3 +144,25 @@ class Solution:
 solution essay 解释了如何看待dp和greedy两种算法，什么时候应该怎么想的问题，挺好的
 这个文章我看的很仔细，各个级别的算法思路和intuition我都看了，可以当做一个DP教学.
 """
+
+
+# solution 4 (补充循环不reserved 的版本）
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+
+        if len(text1) > len(text2):
+            text1, text2 = text2, text1
+        rows = len(text1)
+        cols = len(text2)
+        dp_prev = [0] * (rows + 1)
+        dp_curr = [0] * (rows + 1)
+
+        for i in range(1,cols+1):
+            for j in range(1,rows+1):
+                if text1[j-1] == text2[i-1]:
+                    dp_curr[j] = 1 + dp_prev[j - 1]
+                else:
+                    dp_curr[j] = max(dp_curr[j - 1], dp_prev[j])
+            dp_prev = dp_curr
+            dp_curr = [0] * (rows + 1)
+        return dp_prev[-1]
