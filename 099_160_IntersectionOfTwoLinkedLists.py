@@ -1,6 +1,8 @@
 """
+1 level solution:
+1. 2 pointers
 
-
+time: O(m+n)   space: O(1)
 """
 
 # Definition for singly-linked list.
@@ -14,6 +16,6 @@ class Solution:
         l1 = headA
         l2 = headB
         while l1!=l2:
-            l1 = l1.next if l1.next!=None else headB
-            l2 = l2.next if l2.next!=None else headA
+            l1 = l1.next if l1!=None else headB
+            l2 = l2.next if l2!=None else headA
         return l1
