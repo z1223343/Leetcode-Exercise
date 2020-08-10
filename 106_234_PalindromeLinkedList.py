@@ -42,7 +42,7 @@ class Solution:
     def first_half_end(self, head):
         fast = head
         slow = head
-        if fast.next and fast.next.next:
+        while fast.next and fast.next.next: # while 写成 if 了，debug了一晚上
             fast = fast.next.next
             slow = slow.next
         return slow
