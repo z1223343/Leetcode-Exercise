@@ -1,5 +1,5 @@
 """
-2 level solution:
+2 level solutions:
 1. recursion
 2. iteration
 
