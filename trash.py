@@ -1,4 +1,2 @@
-a =3
-a=b =a
-print(a)
-print(b)
+for i in range(3):
+    print(i)
