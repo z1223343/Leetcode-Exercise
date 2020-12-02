@@ -16,7 +16,7 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        dummy = ListNode(0)
+        dummy = ListNode(0) # 这里让dummy比head多一位是为了防止n=1这个特殊情况，不然first会超过head的长度。
         first = dummy
         second = dummy
         dummy.next = head
