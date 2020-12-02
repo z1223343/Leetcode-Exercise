@@ -16,7 +16,7 @@ class Solution:
         curr = head
         while curr != None and curr.next != None:
             if curr.val == curr.next.val:
-                curr.next = curr.next.next
+                curr.next = curr.next.next # 一个有意思的点就是，这里curr=curr.next.next不行，甚至这个代码改变不了head。只有curr.next才可以改变head。
             else:
                 curr = curr.next
         return head
