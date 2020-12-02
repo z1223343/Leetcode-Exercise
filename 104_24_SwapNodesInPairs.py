@@ -33,8 +33,8 @@ class Solution:
             first_node.next = second_node.next
             second_node.next = first_node
 
-            prev_node = first_node
-            head = first_node.next
+            prev_node = first_node  # 也可以pre_node = head
+            head = first_node.next  # 也可以head = head.next
         return dummy.next
 
 
