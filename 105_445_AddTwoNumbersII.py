@@ -3,7 +3,7 @@
 1. convert to number and then create new listnode
 """
 
-# solution 1:
+# solution 1: # 没有按照Leetcode solution，但我感觉这个解法更棒
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -24,7 +24,7 @@ class Solution:
         if n3 == 0:
             return ListNode(0, None)
         result = None
-        while n3:
+        while n3: # or n3>0
             result = ListNode(n3 % 10, result)
             n3 //= 10
         return result
