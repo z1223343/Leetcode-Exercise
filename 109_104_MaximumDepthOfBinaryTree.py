@@ -4,6 +4,10 @@
 
 """
 
+# solution 1:
+
+
+
 # solution 2:
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
