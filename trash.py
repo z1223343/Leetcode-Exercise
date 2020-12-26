@@ -1,2 +1,4 @@
-for i in range(3):
-    print(i)
+if [] is None:
+    print(1)
+else:
+    print(2)
