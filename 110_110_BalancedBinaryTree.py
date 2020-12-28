@@ -25,3 +25,17 @@ class Solution:
 
 
 # solution 2:
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        return self.isBalancedHelper(root)[0]
+
+    def isBalancedHelper(self, root: TreeNode) -> (bool, int):
+        if root is None:
+            return True, -1   # note here we should return True
+        isleftbalanced, leftheight = self.isBalancedHelper(root.left)
+        if not isleftbalanced:
+            return False, 0
+        isrightbalanced, rightheight = self.isBalancedHelper(root.right)
+        if not isrightbalanced:
+            return False, 0
+        return (abs(leftheight - rightheight) < 2), max(leftheight, rightheight) + 1
