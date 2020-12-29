@@ -5,7 +5,7 @@
 1.   O(N)    O(N)
 """
 
-# solution 1:
+# solution 1: (骚)
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
         if root is None:
