@@ -26,7 +26,7 @@ class Solution:
 class Solution:
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
         def preorder(s):
-            return '#'+ str(s.val) +preorder(s.left)+preorder(s.right) if s else '%' # note str(s.val) 转换成字符串
+            return '#' + str(s.val) + preorder(s.left) + preorder(s.right) if s else '%' # note str(s.val) 转换成字符串
         return preorder(t) in preorder(s)
 
 
