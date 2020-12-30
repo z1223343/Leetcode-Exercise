@@ -2,7 +2,7 @@
 1. Recursive (DFS)
 
      time   space
-1.   O(N)    O(N)
+1.   O(N)    O(N) (best case O(logN))
 """
 
 # solution 1: (真的骚,竟然没有用额外的函数帮助，甚至没有用额外的变量记录sum)
