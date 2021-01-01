@@ -13,7 +13,7 @@ class Solution:
         res = []
 
         que.append(root)
-        while que:
+        while que:aaaaa
             tmp = 0
             size = len(que)  # len()
             for i in range(size):  # for i in range(1) 只执行一次 i=0
