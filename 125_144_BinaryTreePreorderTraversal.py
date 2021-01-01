@@ -1,6 +1,6 @@
 """
-1. Brute Force (DFS)
-2. Ad-Hoc
+1. DFS (preorder)
+2. Morris Traversal
 
      time   space
 1.   O(N)    O(H)
