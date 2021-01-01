@@ -18,8 +18,6 @@ class Solution:
             size = len(que)  # len()
             for i in range(size):  # for i in range(1) 只执行一次 i=0
                 node = que.popleft()  # 这句要在前
-                if not node:
-                    continue
                 tmp += node.val
                 if node.left is not None:
                     que.append(node.left)
