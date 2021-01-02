@@ -1,5 +1,5 @@
 """
-1. DFS (preorder)
+1. DFS (postorder)
 2. Iterative Preorder Traversal: Tweak the Order of the Output
 Morris Traversal 好像不太行
 
