@@ -21,7 +21,7 @@ class Solution:
         return helper(root, False)
 
 
-# solution 2 (我承认，我看了半天没看懂)
+# solution 2 (我承认，我看了半天没看懂) (Update:看懂了，这题应该先看144题的Morris Traversal solution图解)
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
 
