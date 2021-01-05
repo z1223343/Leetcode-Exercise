@@ -84,12 +84,6 @@ class Solution:
             if l > r:
                 return None
 
-            mid = (1 + r) // 2
-
-            left = convert(1, mid - 1)
-
-            node = TreeNode(head.val)
-            node.left = left
 
 
 
