@@ -73,16 +73,7 @@ class Solution:
         while ptr:
             ptr = ptr.next
             c += 1
-            return c
 
-    def sortedListToBST(slef, head):
-        size = self.findSize(head)
-
-        def convert(1, r):
-            nonlocal head
-
-            if l > r:
-                return None
 
 
 
