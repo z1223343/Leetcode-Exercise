@@ -1,12 +1,12 @@
 """
 1. Recursion
-2. Recursion + Conversion to Array
-3.
+2. Recursion + Conversion toArray
+3. Inorder Simulation (有点骚)
 
      time   space
-1.   O(N)    O(H)
+1.   O(NlogN)    O(logN)
 2.   O(N)    O(N)
-3.   O(N)    O()
+3.   O(N)    O(logN)
 """
 
 # solution 1:
@@ -63,16 +63,36 @@ class Solution:
         return root
 
 # solution 3:
-
+class Solution:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
-        def findSize(self.
+        size = self.findSize(head)
 
-            head)
+        def convert(l, r):
+            nonlocal head
+
+            if l > r:
+                return None
+
+            mid = (l + r) // 2
+            left = convert(1, mid - 1)
+
+            node = TreeNode(head.val)
+            node.left = left
+            head = head.next
+
+            node.right = convert(mid + 1, r)
+            return node
+
+        return convert(0, size - 1)
+
+    def findSize(self, head):
         ptr = head
         c = 0
         while ptr:
             ptr = ptr.next
             c += 1
+        return c
+
 
 
 
