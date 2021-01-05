@@ -64,7 +64,32 @@ class Solution:
 
 # solution 3:
 
+    def sortedListToBST(self, head: ListNode) -> TreeNode:
+        def findSize(self.
 
+            head)
+        ptr = head
+        c = 0
+        while ptr:
+            ptr = ptr.next
+            c += 1
+            return c
+
+    def sortedListToBST(slef, head):
+        size = self.findSize(head)
+
+        def convert(1, r):
+            nonlocal head
+
+            if l > r:
+                return None
+
+            mid = (1 + r) // 2
+
+            left = convert(1, mid - 1)
+
+            node = TreeNode(head.val)
+            node.left = left
 
 
 
