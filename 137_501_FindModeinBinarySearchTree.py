@@ -1,5 +1,5 @@
 """
-1. not good enough has error
+1. collections.Counter()
 
 """
 
@@ -9,6 +9,30 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+class Solution:
+    def findMode(self, root: TreeNode) -> List[int]:
+
+        if not root:
+            return []
+        self.count = collections.Counter()
+        self.inorder(root)
+        freq = max(self.count.values())
+        res = []
+        for item, c in self.count.items():
+            if c == freq:
+                res.append(item)
+        return res
+
+    def inorder(self, root):
+        if not root:
+            return
+        self.inorder(root.left)
+        self.count[root.val] += 1
+        self.inorder(root.right)
+
+
+
+# 自己写的不对。
 class Solution:
     def findMode(self, root: TreeNode) -> List[int]:
         self.count = 0
